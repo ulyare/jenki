@@ -27,10 +27,10 @@ spec:
       containers:
         - env:
             - name: MYSQL_DATABASE
-              value: lena
+              value: db_vetc
             - name: MYSQL_ROOT_PASSWORD
-              value: secret
-          image: mhjkeee/mysql
+              value: "1234567890"
+          image: kolla2/sqlvetcli
           name: db
           ports:
             - containerPort: 3306

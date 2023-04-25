@@ -28,7 +28,7 @@ spec:
             - name: PMA_HOST
               value: db
             - name: PMA_PASSWORD
-              value: secret
+              value: "1234567890"
             - name: PMA_USER
               value: root
           image: phpmyadmin/phpmyadmin:5.0.1

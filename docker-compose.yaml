@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web-server:
-    image: mhjkeee/crudback
+    image: kolla2/webvetcli
     restart: always
     ports:
       - "8080:80"
@@ -9,11 +9,11 @@ services:
       - db
       - phpmyadmin
   db:
-    image: mhjkeee/mysql
+    image: kolla2/sqlvetcli
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'secret'
-      MYSQL_DATABASE: 'lena'
+      MYSQL_ROOT_PASSWORD: '1234567890'
+      MYSQL_DATABASE: 'db_vetc'
     ports:
       - "3306:3306"
     volumes:
@@ -25,7 +25,7 @@ services:
     environment:
       PMA_HOST: 'db'
       PMA_USER: 'root'
-      PMA_PASSWORD: 'secret'
+      PMA_PASSWORD: '1234567890'
     ports:
       - "5000:80"
 volumes:
