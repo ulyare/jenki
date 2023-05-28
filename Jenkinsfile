@@ -31,9 +31,9 @@ pipeline {
             echo env.WORKSPACE
             echo env.JOB_URL
             echo env.JENKINS_URL
+            echo env.BUILD_NUMBER
             
-             sh 'make check'
-             junit 'reports/**/*.xml'
+            echo 'dotnet test --filter Name~"SwitchLanguage"'
       
             
           }
