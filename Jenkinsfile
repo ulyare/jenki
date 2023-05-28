@@ -32,8 +32,9 @@ pipeline {
             echo env.JOB_URL
             echo env.JENKINS_URL
             
-            server_ip="env.JENKINS_URL"
-            ping -c 5 ${server_ip} | grep 'received' | awk -F',' '{print \$2}'
+             sh 'make check'
+             junit 'reports/**/*.xml'
+      
             
           }
           else {
