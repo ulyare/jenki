@@ -33,8 +33,8 @@ pipeline {
             echo env.JENKINS_URL
             
             server_ip="env.JENKINS_URL"
-            SYS_PING=ping -c 5 ${server_ip} | grep 'received' | awk -F',' '{print \$2}'
-            echo "Pinging ${server_ip} with response: "${SYS_PING}" 
+            ping -c 5 ${server_ip} | grep 'received' | awk -F',' '{print \$2}'
+            
           }
           else {
             sh "echo 'Tasks ran elsewhere'"
