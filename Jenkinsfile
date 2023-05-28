@@ -24,18 +24,12 @@ pipeline {
         script{
           echo '-------------Test started-------------'
           echo 'Job Name: ' + env.JOB_NAME
-          if (env.JOB_NAME == 'sunnyday') {
-            echo 'Tasks ran on the sunnyday job'
-            echo env.NODE_NAME
-            echo env.NODE_LABEL
-            echo env.WORKSPACE
-            echo env.JOB_URL
-            echo env.JENKINS_URL
-            echo env.BUILD_NUMBER
-            
-            echo 'dotnet test --filter Name~"SwitchLanguage"'
-      
-            
+          if (env.BUILD_NUMBER > 10) {
+            echo 'Build number over 10'
+            echo 'Node name: ' + env.NODE_NAME
+            echo 'Workspace: ' + env.WORKSPACE
+            echo 'Job url: ' + env.JOB_URL
+            echo 'Jenkins url' + env.JENKINS_URL
           }
           else {
             sh "echo 'Tasks ran elsewhere'"
