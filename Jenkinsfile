@@ -35,6 +35,12 @@ pipeline {
             sh "echo 'Tasks ran elsewhere'"
           }
           echo '-------------Test finished-------------'
+          if(ping(env.JENKINS_URL)) {
+            echo 'server is available'
+          }
+          else {
+            echo 'server is not available'
+          }
         }
       }
     }
