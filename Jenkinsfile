@@ -24,7 +24,7 @@ pipeline {
         script{
           echo '-------------Test started-------------'
           echo 'Job Name: ' + env.JOB_NAME
-          if (env.BUILD_NUMBER > 10) {
+          if (Integer.parseInt(env.BUILD_NUMBER) > 10) {
             echo 'Build number over 10'
             echo 'Node name: ' + env.NODE_NAME
             echo 'Workspace: ' + env.WORKSPACE
