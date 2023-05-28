@@ -18,6 +18,20 @@ pipeline {
         }
       }
     }
+    
+    stage('Test'){
+      steps{
+        script{
+          echo 'Job Name: ' + env.JOB_NAME
+          if (env.JOB_NAME == 'sunnyday') {
+            echo 'Tasks ran on the sunnyday job'
+          }
+          else {
+            sh "echo 'Tasks ran elsewhere'"
+          }
+        }
+      }
+    }
 
   }
 }
