@@ -36,11 +36,7 @@ pipeline {
           }
           echo '-------------Test finished-------------'
           
-          if(get(env.JENKINS_URL)) {
-            echo 'server is available'
-          }
-          else {
-            echo 'server is not available'
+          sh 'ping 127.0.0.1'
           }
         }
       }
