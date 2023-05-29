@@ -14,6 +14,7 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl create ns crud2'
             sh 'kubectl apply -f ./manifests -n crud2'
+            sh 'kubectl get ns'
           }
         }
       }
@@ -36,7 +37,12 @@ pipeline {
           }
           echo '-------------Test finished-------------'
           
-          sh 'kubectl get ns'
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'kubectl get ns'
+          }
+          
+          
+          
           }
         }
       }
