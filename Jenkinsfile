@@ -35,13 +35,14 @@ pipeline {
             sh "echo 'Tasks ran elsewhere'"
           }
           echo '-------------Test finished-------------'
+          sh 'ls'
           
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get ns'
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get po -n crud2'
-            sh 'netcat -vz 127.0.0.1 1500'
+            sh 'ls'
           }
         }
           
