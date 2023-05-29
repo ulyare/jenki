@@ -47,7 +47,7 @@ pipeline {
             }
           }
         }
-          echo '-------------Connection test finished-------------'
+          echo '-------------Connection-test-finished-------------'
           
           }
         }
