@@ -42,9 +42,6 @@ pipeline {
             sh 'kubectl get ns'
             sh 'kubectl get svc -n crud2'
             text = sh 'kubectl get po -n crud2'
-            if ('Running' in text) {
-            echo 'connection is good'
-            }
           }
         }
           echo '-------------Link test finished-------------'
