@@ -35,7 +35,24 @@ pipeline {
             sh "echo 'Tasks ran elsewhere'"
           }
           echo '-------------Test finished-------------'
-          if(ping(env.JENKINS_URL)) {
+          @Name("Search form")
+          @FindBy(xpath = "//form")
+          public class SearchArrow extends HtmlElement {
+
+            @Name("Search request input")
+            @FindBy(id = "searchInput")
+            private TextInput requestInput;
+
+            @Name("Search button")
+            @FindBy(className = "b-form-button__input")
+            private Button searchButton;
+
+            public void search(String request) {
+              requestInput.sendKeys(request);
+              searchButton.click();
+             }
+           }
+          if(get(env.JENKINS_URL)) {
             echo 'server is available'
           }
           else {
