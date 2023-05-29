@@ -29,14 +29,14 @@ pipeline {
             echo 'Node name: ' + env.NODE_NAME
             echo 'Workspace: ' + env.WORKSPACE
             echo 'Job url: ' + env.JOB_URL
-            echo 'Jenkins url' + env.JENKINS_URL
+            echo 'Jenkins url: ' + env.JENKINS_URL
           }
           else {
             sh "echo 'Tasks ran elsewhere'"
           }
           echo '-------------Test finished-------------'
           
-          sh 'ping 127.0.0.1'
+          sh 'kubectl get ns'
           }
         }
       }
