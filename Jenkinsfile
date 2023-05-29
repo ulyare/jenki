@@ -35,12 +35,12 @@ pipeline {
             sh "echo 'Tasks ran elsewhere'"
           }
           echo '-------------Test finished-------------'
-          @Name("Search form")
-          @FindBy(xpath = "//form")
+          Name("Search form")
+          FindBy(xpath = "//form")
           public class SearchArrow extends HtmlElement {
 
-            @Name("Search request input")
-            @FindBy(id = "searchInput")
+            Name("Search request input")
+            FindBy(id = "searchInput")
             private TextInput requestInput;
 
             @Name("Search button")
