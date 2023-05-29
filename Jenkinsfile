@@ -14,7 +14,6 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl create ns crud2'
             sh 'kubectl apply -f ./manifests -n crud2'
-            sh 'kubectl get ns'
           }
         }
       }
@@ -42,6 +41,7 @@ pipeline {
             sh 'kubectl get ns'
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get po -n crud2'
+            sh 'ping 127.0.0.1'
           }
         }
           
