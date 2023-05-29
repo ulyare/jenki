@@ -36,6 +36,7 @@ pipeline {
           }
           echo '-------------Test finished-------------'
           
+          timeout(time: 1, unit: 'SECONDS')
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get ns'
