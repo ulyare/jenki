@@ -36,7 +36,7 @@ pipeline {
           }
           echo '-------------Build number test finished-------------'
 
-          echo '-------------Connection test started-------------
+          echo '-------------Connection-test-started-------------
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get ns'
