@@ -22,7 +22,7 @@ pipeline {
     stage('Test'){
       steps{
         script{
-          echo '-------------Test started-------------'
+          echo '-------------Build number test started-------------'
           echo 'Job Name: ' + env.JOB_NAME
           if (Integer.parseInt(env.BUILD_NUMBER) > 10) {
             echo 'Build number over 10'
@@ -34,18 +34,20 @@ pipeline {
           else {
             sh "echo 'Tasks ran elsewhere'"
           }
-          echo '-------------Test finished-------------'
-          sh 'ls'
-          sh 'ls /'
-          
+          echo '-------------Build number test finished-------------'
+
+          echo '-------------Connection test started-------------
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get ns'
             sh 'kubectl get svc -n crud2'
-            sh 'kubectl get po -n crud2'
+            text = sh 'kubectl get po -n crud2'
+            if ('Running' in text) {
+            echo 'connection is good'
+            }
           }
         }
-          
+          echo '-------------Connection test finished-------------'
           
           }
         }
