@@ -36,13 +36,14 @@ pipeline {
           }
           echo '-------------Test finished-------------'
           
-          timeout(time: 1, unit: 'SECONDS')
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get ns'
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get po -n crud2'
-            sh 'ping 127.0.0.1'
+            if (sh 'ping 127.0.0.1') {
+              echo 'good link'
+            }
           }
         }
           
