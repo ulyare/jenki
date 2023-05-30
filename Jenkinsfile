@@ -29,7 +29,7 @@ pipeline {
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get deployments -n crud2 | grep web | awk \'{print $1}\''
 	    sh 'if [[ $(kubectl get deployments -n crud2 | grep web | awk \'{print $2}\') == "1/1" ]]; then echo \'web-server is ready\'; else error; exit 1; fi'
-            sh 'curl -D - -s http://127.0.0.1:1500 | grep 200 | awk "{print $2}"'
+            sh 'if [[ $(curl -D - -s http://127.0.0.1:1500 | grep 200 | awk \'{print $2}\') == "curl -D - -s http://127.0.0.1:1500" ]]; then echo \'web-server works\'; else error; exit 1; fi'
           }
         }
           echo '-------------Link test finished-------------'
