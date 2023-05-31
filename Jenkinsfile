@@ -36,7 +36,7 @@ pipeline {
             sh 'kubectl get po -n crud2'
             sh 'kubectl get po -n crud2'
             sh 'kubectl get po -n crud2'
-            sh 'telnet 10.110.151.129 8080'
+            sh 'telnet 127.0.0.1 80'
 
           }
         }
