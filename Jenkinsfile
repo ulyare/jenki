@@ -22,7 +22,8 @@ pipeline {
     stage('Test'){
       steps{
         script{
-          
+          sh 'apt install telnet'
+          sh 'spt install netcat'
           echo '-------------Link test started-------------'
          container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
