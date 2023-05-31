@@ -22,7 +22,7 @@ pipeline {
     stage('Test'){
       steps{
         script{
-          sh 'telnet 127.0.0.1 80'
+          sh 'busybox-extras telnet 127.0.0.1 80'
           sh 'nc -vz 127.0.0.1 80'
           echo '-------------Link test started-------------'
          container('kubectl') {
