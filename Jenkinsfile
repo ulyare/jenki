@@ -29,13 +29,6 @@ pipeline {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
-            sh 'kubectl get po -n crud2'
             sh 'telnet 127.0.0.1 80'
 
           }
