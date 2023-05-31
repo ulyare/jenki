@@ -29,6 +29,7 @@ pipeline {
             sh 'kubectl get svc -n crud2'
             sh 'kubectl get po -n crud2'
             sh 'nc -vz 127.0.0.1 80'
+                  sh 'if[[nc -vz 127.0.0.1 80="Connection to 127.0.0.1 80 port [tcp/http] succeeded!";else error;exit 1;fi'
           }
         }
           echo '-------------Link test finished-------------'
